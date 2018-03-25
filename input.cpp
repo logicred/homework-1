@@ -1,10 +1,14 @@
 #include"input.h"
 
-/*input_onefile:�򿪵��ļ�����ʼ��ȡ*/
+FILE *fin = NULL;
+bool fileflag = false;//文件是否为空标识，true空，false不空
+
+/*input_onefile:打开单文件，开始读取*/
 
 bool input_onefile_open(void) {
-	fin = fopen("sample.txt", "r");
-	if (fin == NULL)
+	errno_t err;
+	err = fopen_s(&fin,"sample.txt", "r");
+	if (err == true)
 	{
 		printf("can't open the file\n");
 		fclose(fin);
