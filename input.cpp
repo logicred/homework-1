@@ -1,9 +1,9 @@
 #include"input.h"
 
 FILE *fin = NULL;
-bool fileflag = false;//æ–‡ä»¶æ˜¯å¦ä¸ºç©ºæ ‡è¯†ï¼Œtrueç©ºï¼Œfalseä¸ç©º
+bool fileflag = false;//ÎÄ¼şÊÇ·ñÎª¿Õ±êÊ¶£¬true¿Õ£¬false²»¿Õ
 
-/*input_onefile:æ‰“å¼€å•æ–‡ä»¶ï¼Œå¼€å§‹è¯»å–*/
+/*input_onefile:´ò¿ªµ¥ÎÄ¼ş£¬¿ªÊ¼¶ÁÈ¡*/
 
 bool input_onefile_open(void) {
 	errno_t err;

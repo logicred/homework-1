@@ -15,5 +15,6 @@ bool if_code(char c);
 bool if_split(char c);
 bool if_number(char c);
 bool if_letter(char c);
+bool if_line(char c);
 
 

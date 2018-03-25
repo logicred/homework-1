@@ -1,4 +1,9 @@
 #include"count.h"
+#include"input.h"
+
+long countcode = 0;//字符数
+long countword = 0;//单词数
+long countline = 0;//行数
 
 /*count_code:计数字符个数*/
 

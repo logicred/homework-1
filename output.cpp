@@ -1,6 +1,6 @@
 #include"output.h"
 
-FILE *fout = NULL;//杈撳嚭鏂囦欢鎸囬拡
+FILE *fout = NULL;//输出文件指针
 
 bool output_onefile_open(void) {
 	errno_t err;

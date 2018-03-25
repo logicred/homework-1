@@ -29,6 +29,6 @@ int main() {
 
 	output_onefile_close();
 	printf("The program ends\n");
-	getchar();//璁￢S鍒竴闂�岃繃
+	getchar();//让VS别一闪而过
 	return(0);
 }

@@ -33,3 +33,12 @@ bool if_split(char c) {
 bool if_code(char c) {
 	return(true);
 }
+
+/*if_line:判断出入是否是换行符*/
+
+bool if_line(char c) {
+	if (c == '\n')
+		return(true);
+	else
+		return(false);
+}
