@@ -18,9 +18,10 @@ void testpart(void) {
 
 int main() {
 	char c;
-	testpart();
-	getchar();
-	return(0);
+	int i;
+//	testpart();
+//	getchar();
+//	return(0);
 
 	input_onefile_open();
 	while ((c = fgetc(fin)) != EOF) {
@@ -43,11 +44,32 @@ int main() {
 	}
 	input_onefile_close();
 
+	input_onefile_open();
+	wordletter = false;
+	for(i=0;i<WORDNUM;i++)
+	{
+		c=store_word(i);
+//		printf("%s\n", word[i]);
+//		printf("h\n");
+		if (c == 0)
+			break;
+	}
+
+	input_onefile_close();
+
 	output_onefile_open();
 
 	output_print_code(countcode);
 	output_print_line(countline);
 	output_print_word(countword);
+
+	printf("kkk\n");
+	for (i = 0; i < WORDNUM; i++)
+	{
+		if(word[i]!=NULL)
+			fprintf(fout,"%u,%s\n", store_BKDRHash(word[i]),word[i]);
+	}
+	printf("jjj\n");
 
 	output_onefile_close();
 	printf("The program ends\n");

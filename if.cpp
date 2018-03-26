@@ -34,7 +34,7 @@ bool if_split(char c) {
 /*if_code:判断出入是否是字符*/
 
 bool if_code(char c) {
-	if (c != '\n'&&c != 0)
+	if (c >= 32&&c <= 126)
 		return(true);
 	else
 		return(false);
@@ -53,7 +53,10 @@ bool if_line(char c) {
 
 bool if_word(char c) {
 	if (c == EOF&&wordletter >= WORDLETTER)
+	{
+		wordletter = false;
 		return(true);
+	}
 	if (if_split(c)) {//若为分隔符
 		if (wordletter >= WORDLETTER)//已成单词，返回为真，清空计数
 		{
@@ -69,7 +72,7 @@ bool if_word(char c) {
 	else {//若为字母数字
 		if (if_letter(c))//若为字母，计数增加
 			wordletter++;
-		else if (wordletter >= WORDLETTER)//若为数字，已成单词，返回为真
+		else if (wordletter >= WORDLETTER)//若为数字，已成单词
 			;
 		else//若为数字，未成单词，返回为假
 			wordletter = false;
