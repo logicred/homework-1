@@ -22,9 +22,10 @@ int main() {
 //	testpart();
 //	getchar();
 //	return(0);
-
+	
 	input_onefile_open();
 	while ((c = fgetc(fin)) != EOF) {
+		
 		if (fileflag == false)
 		{
 			countline++;
@@ -32,30 +33,29 @@ int main() {
 		}
 		count_code(c);
 		count_line(c);
-	}
+	}printf("ahah\n");
 	input_onefile_close();
-
+	
 	input_onefile_open();
 	while (true) {
 		c = fgetc(fin);
 		count_word(c);
 		if (c == EOF)
 			break;
-	}
+	}printf("hehe\n");
 	input_onefile_close();
 
 	input_onefile_open();
 	wordletter = false;
 	for(i=0;i<WORDNUM;i++)
 	{
-		c=store_word(i);
-//		printf("%s\n", word[i]);
-//		printf("h\n");
+		c=store_word();
+		store_hashword(i);
 		if (c == 0)
 			break;
 	}
 
-	input_onefile_close();
+	input_onefile_close();/**/
 
 	output_onefile_open();
 
@@ -66,10 +66,18 @@ int main() {
 	printf("kkk\n");
 	for (i = 0; i < WORDNUM; i++)
 	{
-		if(word[i]!=NULL)
-			fprintf(fout,"%u,%s\n", store_BKDRHash(word[i]),word[i]);
+		if (i % 1000000 == 0)
+			printf("turn:%d\n", i);
+		store_hashword(i);
 	}
+	store_wordfind();
 	printf("jjj\n");
+
+	for (i = 0; i < MAX; i++) {
+		fprintf(fout, "%s,%u\n", word[wordmax[i]],hashtime[wordmax[i]]);
+			//fprintf(fout, "%s,%u\n", word[hashtime[wordmax[i]][1]], hashtime[wordmax[i]][0]);
+	}/**/
+
 
 	output_onefile_close();
 	printf("The program ends\n");

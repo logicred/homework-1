@@ -1,6 +1,7 @@
 #include"if.h"
 #include"stdio.h"
 #include"string.h"
+#include"math.h"
 
 long wordletter = false;
 
@@ -106,7 +107,7 @@ bool if_sameword(char *s1, char *s2) {
 	bool flag = false;//判断中间有否出现数字不同的标志
 	for (i = 0; *(s1 + i) != '\0'&&*(s2 + i) != '\0'; i++) {
 		if (if_letter(*(s1 + i)) && if_letter(*(s2 + i))) {//若该位置两者均为字母
-			if (*(s1 + i) != *(s2 + i))//若不相等，返回为假
+			if (*(s1 + i) != *(s2 + i)||abs(*(s1 + i)- *(s2 + i)==32))//若不相等，返回为假
 				return(false);
 		}
 		else {//若该位置两者均为数字
@@ -132,4 +133,11 @@ bool if_sameword(char *s1, char *s2) {
 		}
 	}
 	return(true);
+}
+
+void if_lettercase(char &c)
+{
+	if (c <= 'z'&&c >= 'a')
+		c = c + 32;
+	return;
 }

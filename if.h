@@ -22,5 +22,5 @@ bool if_line(char c);
 bool if_word(char c);
 int if_wordorder(char *s1, char *s2);
 bool if_sameword(char *s1, char *s2);
-
+void if_lettercase(char &c);
 
