@@ -17,6 +17,19 @@ bool output_onefile_open(void) {
 		return(true);
 }
 
+bool output_file_open(char *file) {
+	errno_t err;
+	err = fopen_s(&fout, file, "w");
+	if (err == 1)
+	{
+		printf("can't open the file\n");
+		fclose(fout);
+		return(false);
+	}
+	else
+		return(true);
+}
+
 /*output_onefile_close:关闭输出单文件*/
 
 void output_onefile_close(void) {
